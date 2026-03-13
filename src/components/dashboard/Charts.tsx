@@ -59,6 +59,22 @@ export function StorageChart() {
   return (
     <div className="relative h-40 w-40 mx-auto">
       <Doughnut data={data} options={options} />
+      {/* Blue dashed tick circle */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <svg className="w-60 h-28 absolute" viewBox="0 0 100 100">
+          <circle
+            cx="50"
+            cy="50"
+            r="37"
+            fill="none"
+            stroke="#3B82F6"
+            strokeWidth="4"
+            strokeDasharray="3 6"
+            strokeLinecap="round"
+          />
+          
+        </svg>
+      </div>
       <div className="absolute inset-0 flex flex-col items-center justify-center">
         <span className="text-2xl font-bold text-gray-900">80%</span>
         <span className="text-xs text-gray-500">Used</span>
@@ -133,6 +149,22 @@ export function EmailChart() {
   return (
     <div className="relative h-48 w-48 mx-auto">
       <Doughnut data={data} options={options} />
+      {/* Blue dashed tick circle */}
+      <div className="absolute inset-0 flex items-center justify-center">
+        <svg className="w-60 h-36 absolute" viewBox="0 0 100 100">
+          <circle
+            cx="50"
+            cy="50"
+            r="37"
+            fill="none"
+            stroke="#3B82F6"
+            strokeWidth="4"
+            strokeDasharray="3 6"
+            strokeLinecap="round"
+          />
+          
+        </svg>
+      </div>
       <div className="absolute inset-0 flex flex-col items-center justify-center">
         <span className="text-sm font-medium text-gray-900">Emails</span>
         <span className="text-sm font-medium text-gray-900">Chart</span>
