@@ -13,7 +13,7 @@ export function CloudNetwork() {
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
         {/* Left Stats Column */}
-        <div className="grid grid-cols-2 gap-4">
+        <div className="grid grid-cols-2 gap-2">
           <StatCard title="Users" value="3,836" trend={-15} icon={<Users className="w-4 h-4" />} />
           <StatCard title="Groups" value="316" trend={23} icon={<Users2 className="w-4 h-4" />} />
           <StatCard title="Uploads" value="316" trend={23} icon={<UploadCloud className="w-4 h-4" />} />

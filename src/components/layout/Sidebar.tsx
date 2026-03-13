@@ -20,9 +20,6 @@ export function Sidebar() {
   return (
     <aside className="w-64 border-r border-gray-200 bg-white flex flex-col h-screen sticky top-0">
       <div className="p-6 flex items-center gap-2">
-        <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center">
-          <span className="text-white font-bold text-xl">S</span>
-        </div>
         <span className="text-xl font-bold text-gray-900">Snaarp</span>
       </div>
 

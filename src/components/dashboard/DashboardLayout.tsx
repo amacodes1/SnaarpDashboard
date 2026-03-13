@@ -71,7 +71,7 @@ export function DashboardLayout() {
   const sensors = useSensors(
     useSensor(PointerSensor, {
       activationConstraint: {
-        distance: 8, // Require 8px movement before dragging starts to allow clicking inside
+        distance: 8,
       },
     }),
     useSensor(KeyboardSensor, {
@@ -94,7 +94,6 @@ export function DashboardLayout() {
   return (
     <div className="px-3 max-w-[1600px] mx-auto">
       <div className=" flex justify-between items-center">
-        {/* <p className="text-sm text-gray-500">Hover over the left edge of any section to drag and reorder your dashboard.</p> */}
       </div>
       
       <DndContext
