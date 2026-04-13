@@ -80,8 +80,8 @@ export function CloudNetwork() {
             </div>
             <div className="flex items-center gap-2">
               <div className="flex border border-gray-200 rounded-md overflow-hidden">
-                <button className="p-1.5 bg-indigo-50 text-indigo-600"><BarChart2 className="w-4 h-4" /></button>
-                <button className="p-1.5 bg-white text-gray-400 hover:bg-gray-50"><Activity className="w-4 h-4" /></button>
+                <button className="p-1.5 bg-indigo-50 text-indigo-600" title="Bar Chart"><BarChart2 className="w-4 h-4" /></button>
+                <button className="p-1.5 bg-white text-gray-400 hover:bg-gray-50" title="Line Chart"><Activity className="w-4 h-4" /></button>
               </div>
               <Button variant="outline" size="sm" className="h-8 text-xs">Month <ChevronDown className="w-3 h-3 ml-1" /></Button>
             </div>

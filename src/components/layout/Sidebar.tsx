@@ -30,9 +30,9 @@ export function Sidebar() {
             href="#"
             className={cn(
               "flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium transition-colors",
-              item.active 
-                ? "bg-indigo-50 text-indigo-600" 
-                : "text-gray-600 hover:bg-gray-50 hover:text-gray-900"
+              item.active
+                ? "bg-indigo-50 text-indigo-600"
+                : "text-gray-600 hover:bg-gray-50 hover:text-gray-900",
             )}
           >
             <item.icon className="w-5 h-5" />
@@ -41,23 +41,35 @@ export function Sidebar() {
         ))}
       </nav>
 
-      <div className="p-4 border-t border-gray-200 space-y-1">
-        <a href="#" className="flex items-center gap-3 px-3 py-2 text-sm font-medium text-gray-600 hover:bg-gray-50 rounded-lg">
+      <div className="p-4 border-gray-200 space-y-1">
+        <a
+          href="#"
+          className="flex items-center gap-3 px-3 py-2 text-sm font-medium text-gray-600 hover:bg-gray-50 rounded-lg"
+        >
           <User className="w-5 h-5" /> User Panel
         </a>
-        <a href="#" className="flex items-center gap-3 px-3 py-2 text-sm font-medium text-gray-600 hover:bg-gray-50 rounded-lg">
+        <a
+          href="#"
+          className="flex items-center gap-3 px-3 py-2 text-sm font-medium text-gray-600 hover:bg-gray-50 rounded-lg"
+        >
           <HelpCircle className="w-5 h-5" /> Support
         </a>
-        
-        <div className="mt-4 flex items-center gap-3 px-3 py-2">
-          <img 
-            src="https://i.pravatar.cc/150?u=a042581f4e29026024d" 
-            alt="User" 
-            className="w-10 h-10 rounded-full"
-          />
-          <div className="flex flex-col">
-            <span className="text-sm font-medium text-gray-900">Chidinma Snaarp</span>
-            <span className="text-xs text-gray-500 truncate w-32">admin@example.com</span>
+
+        <div className="border-t">
+          <div className="mt-4 flex items-center gap-3 px-3 py-2">
+            <img
+              src="https://i.pravatar.cc/150?u=a042581f4e29026024d"
+              alt="User"
+              className="w-10 h-10 rounded-full"
+            />
+            <div className="flex flex-col">
+              <span className="text-sm font-medium text-gray-900">
+                Chidinma Snaarp
+              </span>
+              <span className="text-xs text-gray-500 truncate w-32">
+                admin@example.com
+              </span>
+            </div>
           </div>
         </div>
       </div>

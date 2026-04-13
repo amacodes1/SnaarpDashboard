@@ -34,12 +34,12 @@ export function StorageChart() {
       {
         data: [35, 15, 20, 10, 15, 5],
         backgroundColor: [
-          '#A855F7', // Purple
-          '#3B82F6', // Blue
-          '#F59E0B', // Orange
-          '#EF4444', // Red
-          '#10B981', // Green
-          '#2563EB', // Dark Blue
+          '#A855F7', 
+          '#3B82F6', 
+          '#F59E0B',
+          '#EF4444',
+          '#10B981',
+          '#2563EB',
         ],
         borderWidth: 0,
         cutout: '75%',
@@ -92,12 +92,10 @@ export function FileSharingChart() {
       {
         label: 'Public',
         data: [45, 60, 50, 40, 70, 80, 65, 50, 45, 50, 75, 50],
-        backgroundColor: '#4F46E5', // Indigo
+        backgroundColor: '#4F46E5',
         borderRadius: 4,
         barPercentage: 0.6,
       },
-      // In a real app, you'd stack these or group them. The design shows grouped bars but some are taller.
-      // Simulating the visual with a single dataset for simplicity of matching the exact look.
     ],
   };
 
@@ -108,14 +106,19 @@ export function FileSharingChart() {
       y: {
         beginAtZero: true,
         max: 100,
-        ticks: { stepSize: 10, color: '#9CA3AF', font: { size: 10 } },
-        grid: { color: '#F3F4F6', drawBorder: false },
-        border: { display: false }
+        ticks: { stepSize: 10, color: "#9CA3AF", font: { size: 10 } },
+        grid: {
+          color: "#F3F4F6",
+          drawBorder: false,
+          borderDash: [2, 4],
+          lineWidth: 1,
+        },
+        border: { display: false },
       },
       x: {
         grid: { display: false },
-        ticks: { color: '#9CA3AF', font: { size: 10 } },
-        border: { display: false }
+        ticks: { color: "#9CA3AF", font: { size: 10 } },
+        border: { display: false },
       },
     },
     plugins: {
