@@ -1,6 +1,11 @@
 import { Card, CardContent, CardHeader, CardTitle } from "../../ui/Card";
 import { StatCard } from "../StatCard";
-import { StorageChart, FileSharingChart } from "../Charts";
+import { useState } from "react";
+import {
+  StorageChart,
+  FileSharingChart,
+  FileSharingLineChart,
+} from "../Charts";
 import { Button } from "../../ui/Button";
 import { ProgressBar } from "../../ui/ProgressBar";
 import { SectionHeader } from "../../ui/SectionHeader";
@@ -24,6 +29,8 @@ import CAflag from "../../../assets/canada-flag.webp";
 import USflag from "../../../assets/usa-flag.webp";
 
 export function CloudNetwork() {
+  const [fileSharingView, setFileSharingView] = useState<"bar" | "line">("bar");
+
   return (
     <div className="space-y-2">
       <SectionHeader icon={Globe} title="Cloud Network" />
@@ -137,13 +144,27 @@ export function CloudNetwork() {
             <div className="flex items-center gap-2">
               <div className="flex border border-gray-200 rounded-md overflow-hidden">
                 <button
-                  className="p-1.5 bg-indigo-50 text-indigo-600"
+                  type="button"
+                  aria-label="Bar chart view"
+                  onClick={() => setFileSharingView("bar")}
+                  className={
+                    fileSharingView === "bar"
+                      ? "p-1.5 bg-indigo-50 text-indigo-600"
+                      : "p-1.5 bg-white text-gray-400 hover:bg-gray-50"
+                  }
                   title="Bar Chart"
                 >
                   <BarChart2 className="w-4 h-4" />
                 </button>
                 <button
-                  className="p-1.5 bg-white text-gray-400 hover:bg-gray-50"
+                  type="button"
+                  aria-label="Line chart view"
+                  onClick={() => setFileSharingView("line")}
+                  className={
+                    fileSharingView === "line"
+                      ? "p-1.5 bg-indigo-50 text-indigo-600"
+                      : "p-1.5 bg-white text-gray-400 hover:bg-gray-50"
+                  }
                   title="Line Chart"
                 >
                   <Activity className="w-4 h-4" />
@@ -155,7 +176,11 @@ export function CloudNetwork() {
             </div>
           </CardHeader>
           <CardContent>
-            <FileSharingChart />
+            {fileSharingView === "bar" ? (
+              <FileSharingChart />
+            ) : (
+              <FileSharingLineChart />
+            )}
             <div className="flex justify-center gap-6 mt-4 text-xs text-gray-600">
               <div className="flex items-center gap-2">
                 <span className="w-3 h-3 rounded-sm bg-indigo-600"></span>{" "}

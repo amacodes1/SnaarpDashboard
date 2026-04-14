@@ -1,6 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "../../ui/Card";
+import { useState } from "react";
 import { StatCard } from "../StatCard";
-import { EmailChart, TotalEmailChart } from "../Charts";
+import { EmailChart, TotalEmailBarChart, TotalEmailChart } from "../Charts";
 import { Button } from "../../ui/Button";
 import { SectionHeader } from "../../ui/SectionHeader";
 import {
@@ -17,6 +18,8 @@ import {
 } from "lucide-react";
 
 export function ProductivityReport() {
+  const [totalEmailView, setTotalEmailView] = useState<"bar" | "line">("line");
+
   return (
     <div className="space-y-2">
       <SectionHeader
@@ -108,13 +111,27 @@ export function ProductivityReport() {
             <div className="flex items-center gap-2">
               <div className="flex border border-gray-200 rounded-md overflow-hidden">
                 <button
-                  className="p-1.5 bg-white text-gray-400 hover:bg-gray-50"
+                  type="button"
+                  aria-label="Bar chart view"
+                  onClick={() => setTotalEmailView("bar")}
+                  className={
+                    totalEmailView === "bar"
+                      ? "p-1.5 bg-indigo-50 text-indigo-600"
+                      : "p-1.5 bg-white text-gray-400 hover:bg-gray-50"
+                  }
                   title="Bar Chart"
                 >
                   <BarChart2 className="w-4 h-4" />
                 </button>
                 <button
-                  className="p-1.5 bg-indigo-50 text-indigo-600"
+                  type="button"
+                  aria-label="Line chart view"
+                  onClick={() => setTotalEmailView("line")}
+                  className={
+                    totalEmailView === "line"
+                      ? "p-1.5 bg-indigo-50 text-indigo-600"
+                      : "p-1.5 bg-white text-gray-400 hover:bg-gray-50"
+                  }
                   title="Line Chart"
                 >
                   <Activity className="w-4 h-4" />
@@ -126,7 +143,11 @@ export function ProductivityReport() {
             </div>
           </CardHeader>
           <CardContent className="relative">
-            <TotalEmailChart />
+            {totalEmailView === "line" ? (
+              <TotalEmailChart />
+            ) : (
+              <TotalEmailBarChart />
+            )}
           </CardContent>
         </Card>
       </div>
