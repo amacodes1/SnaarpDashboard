@@ -51,7 +51,7 @@ function SortableWidget({ id, children }: { id: string, children: React.ReactNod
   };
 
   return (
-    <div ref={setNodeRef} style={style} className="relative group mb-8">
+    <div ref={setNodeRef} style={style} className="relative group mb-2">
       {/* Drag Handle */}
       <div 
         {...attributes} 

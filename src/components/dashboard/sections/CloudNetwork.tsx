@@ -17,13 +17,18 @@ import {
   Activity,
   User,
 } from "lucide-react";
+import GBflag from "../../../assets/GB-flag.webp";
+import NGflag from "../../../assets/Nigeria-flag.webp";
+import UAEflag from "../../../assets/uae-flag.jpg";
+import CAflag from "../../../assets/canada-flag.webp";
+import USflag from "../../../assets/usa-flag.webp";
 
 export function CloudNetwork() {
   return (
-    <div className="space-y-3">
+    <div className="space-y-2">
       <SectionHeader icon={Globe} title="Cloud Network" />
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
         {/* Left Stats Column */}
         <div className="grid grid-cols-2 gap-2">
           <StatCard
@@ -69,9 +74,7 @@ export function CloudNetwork() {
                 <div className="flex gap-2">
                   <span className="text-orange-300 font-bold">!</span>
                   <div>
-                    <h4 className="text-xs font-bold text-purple-500">
-                      Note
-                    </h4>
+                    <h4 className="text-xs font-bold text-purple-500">Note</h4>
                     <p className="text-xs text-gray-600 mt-1">
                       You've almost reached your limit
                       <br />
@@ -82,7 +85,7 @@ export function CloudNetwork() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-3 gap-y-3 gap-x-4 text-xs">
+              <div className="grid grid-cols-3 gap-y-2 gap-x-4 text-xs">
                 <LegendItem color="bg-purple-500" label="Files" />
                 <LegendItem color="bg-orange-500" label="Folders" />
                 <LegendItem color="bg-green-500" label="Videos" />
@@ -118,7 +121,7 @@ export function CloudNetwork() {
         </Card>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
         {/* File Sharing */}
         <Card>
           <CardHeader className="flex flex-row items-center justify-between pb-2">
@@ -189,33 +192,33 @@ export function CloudNetwork() {
             <div className="w-1/2 space-y-5">
               <CountryProgress
                 country="United Kingdom"
-                flag="🇬🇧"
+                flag={GBflag}
                 value={78}
-                color="bg-indigo-600"
+                color="bg-green-500"
               />
               <CountryProgress
                 country="Nigeria"
-                flag="🇳🇬"
+                flag={NGflag}
                 value={61}
                 color="bg-green-500"
               />
               <CountryProgress
                 country="UAE"
-                flag="🇦🇪"
+                flag={UAEflag}
                 value={45}
-                color="bg-red-500"
+                color="bg-green-500"
               />
               <CountryProgress
                 country="Canada"
-                flag="🇨🇦"
+                flag={CAflag}
                 value={59}
-                color="bg-red-500"
+                color="bg-green-500"
               />
               <CountryProgress
                 country="United States of America"
-                flag="🇺🇸"
+                flag={USflag}
                 value={78}
-                color="bg-indigo-600"
+                color="bg-green-500"
               />
             </div>
           </CardContent>
@@ -273,13 +276,22 @@ const CountryProgress = ({
   value: number;
   color: string;
 }) => (
-  <div>
-    <div className="flex justify-between items-center mb-1">
-      <div className="flex items-center gap-2 text-sm font-medium text-gray-700">
-        <span className="text-lg leading-none">{flag}</span> {country}
+  <div className="flex items-center gap-3 rounded-lg border border-gray-200 bg-white px-3 py-2">
+    <img
+      src={flag}
+      alt={`${country} flag`}
+      className="w-9 h-6 rounded-md object-cover flex-shrink-0"
+    />
+    <div className="min-w-0 flex-1">
+      <div className="flex items-center justify-between gap-3">
+        <span className="truncate text-sm font-medium text-gray-500">
+          {country}
+        </span>
+        <span className="text-xs font-semibold text-gray-900">{value}%</span>
       </div>
-      <span className="text-xs font-semibold text-gray-900">{value}%</span>
+      <div className="mt-2">
+        <ProgressBar value={value} colorClass={color} />
+      </div>
     </div>
-    <ProgressBar value={value} colorClass={color} />
   </div>
 );

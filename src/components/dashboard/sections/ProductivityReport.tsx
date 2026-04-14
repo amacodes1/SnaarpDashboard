@@ -18,7 +18,7 @@ import {
 
 export function ProductivityReport() {
   return (
-    <div className="space-y-4">
+    <div className="space-y-2">
       <SectionHeader
         icon={FileText}
         title="Productivity Report"
@@ -33,7 +33,7 @@ export function ProductivityReport() {
         }
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-2">
         <StatCard
           title="Hours Productivity"
           value="576 Hrs"
@@ -64,7 +64,7 @@ export function ProductivityReport() {
         />
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-2">
         {/* Email Chart */}
         <Card className="col-span-1">
           <CardHeader className="pb-0">

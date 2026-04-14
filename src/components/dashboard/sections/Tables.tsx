@@ -3,6 +3,19 @@ import { Button } from "../../ui/Button";
 import { ProgressBar } from "../../ui/ProgressBar";
 import { Table, type TableColumn } from "../../ui/Table";
 import { User, ChevronDown, Activity, Globe } from "lucide-react";
+import Chrome from "../../../assets/chrome-logo.webp";
+import Instagram from "../../../assets/instagram-logo.png";
+import YouTube from "../../../assets/youtube-logo.png";
+import Teams from "../../../assets/teams-logo.png";
+import Operamini from "../../../assets/operamini-logo.png";
+import WhatsApp from "../../../assets/whatsapp-logo.png";
+import Windows from "../../../assets/windows-logo.jpg";
+import Mac from "../../../assets/mac-logo.webp";
+import Linux from "../../../assets/linux-logo.png";
+import Facebook from "../../../assets/facebook-logo.jpeg";
+import X from "../../../assets/x-logo.webp";
+import Gmail from "../../../assets/gmail-logo.png";
+import Firefox from "../../../assets/firefox-logo.webp";
 
 const onlineUsersData = [
   {
@@ -77,6 +90,21 @@ const onlineUsersData = [
   },
 ];
 
+const deviceIconByName: Record<string, string> = {
+  Windows,
+  Mac,
+  Linux,
+};
+
+const activityIconByName: Record<string, string> = {
+  "Google Chrome": Chrome,
+  Instagram,
+  YouTube,
+  "Microsoft Teams": Teams,
+  "Opera Mini": Operamini,
+  WhatsApp,
+};
+
 type OnlineUserRow = (typeof onlineUsersData)[number];
 
 const onlineUsersColumns: Array<TableColumn<OnlineUserRow>> = [
@@ -115,21 +143,13 @@ const onlineUsersColumns: Array<TableColumn<OnlineUserRow>> = [
     header: "Device",
     cell: (user) => (
       <div className="flex items-center gap-2">
-        {user.device === "Windows" && (
-          <span className="text-blue-500 text-xs border border-blue-200 bg-blue-50 px-1 rounded">
-            W
-          </span>
-        )}
-        {user.device === "Mac" && (
-          <span className="text-gray-700 text-xs border border-gray-200 bg-gray-50 px-1 rounded">
-            M
-          </span>
-        )}
-        {user.device === "Linux" && (
-          <span className="text-orange-500 text-xs border border-orange-200 bg-orange-50 px-1 rounded">
-            L
-          </span>
-        )}
+        {deviceIconByName[user.device] ? (
+          <img
+            src={deviceIconByName[user.device]}
+            alt={user.device}
+            className="w-4 h-4 object-contain"
+          />
+        ) : null}
         {user.device}
       </div>
     ),
@@ -137,7 +157,18 @@ const onlineUsersColumns: Array<TableColumn<OnlineUserRow>> = [
   {
     key: "activity",
     header: "Current Activity",
-    cell: (user) => user.activity,
+    cell: (user) => (
+      <div className="flex items-center gap-2">
+        {activityIconByName[user.activity] ? (
+          <img
+            src={activityIconByName[user.activity]}
+            alt={user.activity}
+            className="w-4 h-4 object-contain"
+          />
+        ) : null}
+        <span>{user.activity}</span>
+      </div>
+    ),
   },
   {
     key: "time",
@@ -181,35 +212,42 @@ const appActivityData = [
     users: 34,
     time: "3 hours 12 minutes",
     date: "2024-06-26 15:33:49",
-    icon: "🌐",
+    icon: Chrome,
   },
   {
     app: "YouTube",
     users: 12,
     time: "2 hours 8 minutes",
     date: "2024-05-26 12:45:41",
-    icon: "▶️",
+    icon: YouTube,
   },
   {
     app: "Microsoft Teams",
     users: 16,
     time: "6 hours 45 minutes",
     date: "2024-05-21 16:28:21",
-    icon: "👥",
+    icon: Teams,
   },
   {
     app: "WhatsApp",
     users: 49,
     time: "1 hour 30 minutes",
     date: "2024-06-26 15:33:49",
-    icon: "💬",
+    icon: WhatsApp,
   },
   {
     app: "Opera Mini",
     users: 3,
     time: "9 hours 10 minutes",
     date: "2024-05-21 16:28:21",
-    icon: "⭕",
+    icon: Operamini,
+  },
+  {
+    app: "Instagram",
+    users: 22,
+    time: "45 minutes",
+    date: "2024-05-21 16:28:21",
+    icon: Instagram,
   },
 ];
 
@@ -222,7 +260,7 @@ const appActivityColumns: Array<TableColumn<AppActivityRow>> = [
     cellClassName: "text-gray-900 font-medium",
     cell: (row) => (
       <div className="flex items-center gap-3">
-        <span className="text-lg">{row.icon}</span>
+        <img src={row.icon} alt={row.app} className="w-5 h-5" />
         <span>{row.app}</span>
       </div>
     ),
@@ -246,8 +284,8 @@ const appActivityColumns: Array<TableColumn<AppActivityRow>> = [
 
 export function ActivityReports() {
   return (
-    <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-      <Card className="lg:col-span-2 overflow-hidden">
+    <div className="grid grid-cols-1 lg:grid-cols-5 gap-2">
+      <Card className="lg:col-span-3 overflow-hidden">
         <CardHeader className="flex flex-row items-center justify-between pb-4 border-b border-gray-200">
           <div>
             <div className="flex items-center gap-2">
@@ -277,7 +315,7 @@ export function ActivityReports() {
         </CardContent>
       </Card>
 
-      <Card className="overflow-hidden">
+      <Card className="lg:col-span-2 overflow-hidden">
         <CardHeader className="flex flex-row items-center justify-between pb-4 border-gray-200">
           <div>
             <div className="flex items-center gap-2">
@@ -295,42 +333,42 @@ export function ActivityReports() {
 
         <CardContent className="p-5 pt-5 space-y-6">
           <WebActivityRow
-            icon="🌐"
+            icon={Chrome}
             name="Chrome"
             value={78}
             time="5 hours 12 minutes"
             color="bg-green-500"
           />
           <WebActivityRow
-            icon="📧"
+            icon={Gmail}
             name="Gmail"
             value={61}
             time="2 hours 24 minutes"
             color="bg-green-500"
           />
           <WebActivityRow
-            icon="🦊"
+            icon={Firefox}
             name="Firefox"
             value={45}
             time="40 minutes"
             color="bg-green-500"
           />
           <WebActivityRow
-            icon="📸"
+            icon={Instagram}
             name="Instagram"
             value={78}
             time="5 hours 6 minutes"
             color="bg-green-500"
           />
           <WebActivityRow
-            icon="𝕏"
+            icon={X}
             name="x.com"
             value={59}
             time="1 hours 8 minutes"
             color="bg-green-500"
           />
           <WebActivityRow
-            icon="📘"
+            icon={Facebook}
             name="Facebook"
             value={61}
             time="3 hours 1 minute"
@@ -355,19 +393,23 @@ const WebActivityRow = ({
   time: string;
   color: string;
 }) => (
-  <div className="flex items-center gap-4">
-    <div className="w-8 h-8 flex items-center justify-center bg-gray-50 rounded-md text-lg">
-      {icon}
-    </div>
-    <div className="flex-1">
-      <div className="flex justify-between items-center mb-1">
-        <span className="text-sm font-medium text-gray-900">{name}</span>
-        <div className="flex gap-3 text-xs text-gray-500">
-          <span>{value}%</span>
-          <span>{time}</span>
-        </div>
+  <div className="flex items-center gap-2">
+    <div className="flex items-center gap-0 min-w-0">
+      <div className="w-8 h-8 flex items-center justify-center bg-gray-50 rounded-md flex-shrink-0">
+        <img src={icon} alt={name} className="w-5 h-5 object-contain" />
       </div>
-      <ProgressBar value={value} colorClass={color} />
+      <span className="text-sm font-medium text-gray-900 truncate">{name}</span>
+    </div>
+
+    <ProgressBar
+      value={value}
+      colorClass={color}
+      className="flex-1 min-w-[120px] h-2"
+    />
+
+    <div className="flex items-center justify-end gap-3 text-xs text-gray-500 flex-shrink-0 w-[140px]">
+      <span>{value}%</span>
+      <span className="whitespace-nowrap">{time}</span>
     </div>
   </div>
 );
