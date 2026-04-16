@@ -54,7 +54,7 @@ export function StatCard({ title, value, trend, trendLabel = "Compared to last w
     <Card>
       <CardContent className="p-5 flex flex-col gap-4">
         <div className="flex items-center gap-2 text-gray-600 mb-3">
-          {icon && <span className="text-gray-400">{icon}</span>}
+          {icon && <span className="text-gray-400 bg-gray-100 p-1 rounded">{icon}</span>}
           <span className="font-medium text-sm">{title}</span>
         </div>
 

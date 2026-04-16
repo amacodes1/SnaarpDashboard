@@ -1,6 +1,14 @@
-import { 
-  LayoutDashboard, Building2, BarChart2, CreditCard, User, 
-  HardDrive, Settings, Monitor, FileText, HelpCircle 
+import {
+  LayoutDashboard,
+  Building2,
+  BarChart2,
+  CreditCard,
+  User,
+  HardDrive,
+  Settings,
+  Monitor,
+  FileText,
+  HelpCircle,
 } from "lucide-react";
 import { cn } from "../../lib/utils";
 
@@ -18,9 +26,9 @@ const navItems = [
 
 export function Sidebar() {
   return (
-    <aside className="w-64 border-r border-gray-200 bg-white flex flex-col h-screen sticky top-0">
-      <div className="p-6 flex items-center gap-2">
-        <span className="text-xl font-bold text-gray-900">Snaarp</span>
+    <aside className="w-56 border-r border-gray-200 bg-white flex flex-col h-screen sticky top-0">
+      <div className="p-6 flex items-center justify-center">
+        <span className="text-2xl font-bold text-gray-900">Snaarp</span>
       </div>
 
       <nav className="flex-1 px-4 space-y-1 overflow-y-auto">
