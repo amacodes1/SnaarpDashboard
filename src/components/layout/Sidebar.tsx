@@ -1,14 +1,15 @@
 import {
-  LayoutDashboard,
-  Building2,
   BarChart2,
+  Building2,
   CreditCard,
-  User,
-  HardDrive,
-  Settings,
-  Monitor,
   FileText,
+  HardDrive,
   HelpCircle,
+  LayoutDashboard,
+  Monitor,
+  Settings,
+  User,
+  X,
 } from "lucide-react";
 import { cn } from "../../lib/utils";
 
@@ -24,10 +25,34 @@ const navItems = [
   { icon: FileText, label: "Productivity Report" },
 ];
 
-export function Sidebar() {
+export function Sidebar({
+  className,
+  onClose,
+  showCloseButton,
+}: {
+  className?: string;
+  onClose?: () => void;
+  showCloseButton?: boolean;
+}) {
   return (
-    <aside className="w-56 border-r border-gray-200 bg-white flex flex-col h-screen sticky top-0">
-      <div className="p-6 flex items-center justify-center">
+    <aside
+      className={cn(
+        "w-56 border-r border-gray-200 bg-white flex flex-col md:h-screen md:sticky md:top-0",
+        className,
+      )}
+    >
+      <div className="p-6 flex items-center justify-center relative">
+        {showCloseButton ? (
+          <button
+            type="button"
+            aria-label="Close sidebar"
+            onClick={onClose}
+            className="absolute left-4 top-1/2 -translate-y-1/2 p-2 rounded-md hover:bg-gray-50 text-gray-700"
+          >
+            <X className="w-5 h-5" />
+          </button>
+        ) : null}
+
         <span className="text-2xl font-bold text-gray-900">Snaarp</span>
       </div>
 
@@ -43,8 +68,8 @@ export function Sidebar() {
                 : "text-gray-600 hover:bg-gray-50 hover:text-gray-900",
             )}
           >
-            <item.icon className="w-5 h-5" />
-            {item.label}
+            <item.icon className="w-5 h-5 flex-shrink-0" />
+            <span className="truncate">{item.label}</span>
           </a>
         ))}
       </nav>
@@ -70,11 +95,11 @@ export function Sidebar() {
               alt="User"
               className="w-10 h-10 rounded-full"
             />
-            <div className="flex flex-col">
+            <div className="flex flex-col min-w-0">
               <span className="text-sm font-medium text-gray-900">
                 Chidinma Snaarp
               </span>
-              <span className="text-xs text-gray-500 truncate w-32">
+              <span className="text-xs text-gray-500 truncate">
                 admin@example.com
               </span>
             </div>

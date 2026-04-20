@@ -40,7 +40,7 @@ export function DeviceManagement() {
         }
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-3">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-3">
         {/* Number of Devices */}
         <div className="flex h-full flex-col gap-3">
           <Card className="flex-1">
@@ -117,7 +117,7 @@ export function DeviceManagement() {
 
           <Card>
             <CardContent className="p-4">
-              <div className="grid grid-cols-3">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-y-3">
                 <DeviceStat
                   icon={<img src={Windows} alt="Windows" className="w-4 h-4" />}
                   label="Windows"
@@ -214,7 +214,7 @@ export function DeviceManagement() {
 
           <Card>
             <CardContent className="p-4">
-              <div className="grid grid-cols-3 gap-2">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 <DeviceStat
                   icon={<Building className="w-4 h-4 text-gray-500" />}
                   label="Organizations"

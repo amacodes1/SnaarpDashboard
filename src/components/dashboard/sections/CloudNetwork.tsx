@@ -92,7 +92,7 @@ export function CloudNetwork() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-3 gap-y-2 gap-x-4 text-xs">
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-y-2 gap-x-4 text-xs">
                 <LegendItem color="bg-purple-500" label="Files" />
                 <LegendItem color="bg-orange-500" label="Folders" />
                 <LegendItem color="bg-green-500" label="Videos" />
@@ -102,7 +102,7 @@ export function CloudNetwork() {
                 <LegendItem
                   color="bg-gray-200"
                   label="Available Space"
-                  className="col-span-3 mt-2"
+                  className="col-span-2 sm:col-span-3 mt-2"
                 />
               </div>
 
@@ -131,17 +131,17 @@ export function CloudNetwork() {
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
         {/* File Sharing */}
         <Card>
-          <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <div className="flex items-center gap-2">
-              <FileText className="w-5 h-5 text-gray-500" />
-              <div>
+          <CardHeader className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between pb-2">
+            <div className="flex items-center gap-2 min-w-0">
+              <FileText className="w-5 h-5 text-gray-500 flex-shrink-0" />
+              <div className="min-w-0">
                 <CardTitle>File Sharing</CardTitle>
                 <p className="text-xs text-gray-500 font-normal mt-1">
                   Keep track of files and how they're shared
                 </p>
               </div>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center gap-2 justify-start sm:justify-end">
               <div className="flex border border-gray-200 rounded-md overflow-hidden">
                 <button
                   type="button"
@@ -170,7 +170,11 @@ export function CloudNetwork() {
                   <Activity className="w-4 h-4" />
                 </button>
               </div>
-              <Button variant="outline" size="sm" className="h-8 text-xs">
+              <Button
+                variant="outline"
+                size="sm"
+                className="h-8 text-xs w-full sm:w-auto"
+              >
                 Month <ChevronDown className="w-3 h-3 ml-1" />
               </Button>
             </div>
@@ -200,21 +204,25 @@ export function CloudNetwork() {
 
         {/* Active Users */}
         <Card>
-          <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <div className="flex items-center gap-2">
-              <User className="w-5 h-5 text-gray-500" />
+          <CardHeader className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between pb-2">
+            <div className="flex items-center gap-2 min-w-0">
+              <User className="w-5 h-5 text-gray-500 flex-shrink-0" />
               <CardTitle>Active Users</CardTitle>
             </div>
-            <Button variant="outline" size="sm" className="h-8 text-xs">
+            <Button
+              variant="outline"
+              size="sm"
+              className="h-8 text-xs w-full sm:w-auto"
+            >
               Month <ChevronDown className="w-3 h-3 ml-1" />
             </Button>
           </CardHeader>
-          <CardContent className="flex gap-6">
-            <div className="w-1/2 rounded-lg border border-gray-100 overflow-hidden min-h-[250px]">
-              <ActiveUsersMap className="w-full h-[250px]" />
+          <CardContent className="flex flex-col md:flex-row gap-6">
+            <div className="w-full md:w-1/2 rounded-lg border border-gray-100 overflow-hidden min-h-[220px] sm:min-h-[250px]">
+              <ActiveUsersMap className="w-full h-[220px] sm:h-[250px]" />
             </div>
 
-            <div className="w-1/2 space-y-5">
+            <div className="w-full md:w-1/2 space-y-4 sm:space-y-5">
               <CountryProgress
                 country="United Kingdom"
                 flag={GBflag}

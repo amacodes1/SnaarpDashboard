@@ -180,17 +180,21 @@ const onlineUsersColumns: Array<TableColumn<OnlineUserRow>> = [
 export function OnlineUsersTable() {
   return (
     <Card className="overflow-hidden">
-      <CardHeader className="flex flex-row items-center justify-between pb-4 border-b border-gray-200">
-        <div>
+      <CardHeader className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between pb-4 border-b border-gray-200">
+        <div className="min-w-0">
           <div className="flex items-center gap-2">
-            <User className="w-5 h-5 text-gray-500" />
+            <User className="w-5 h-5 text-gray-500 flex-shrink-0" />
             <CardTitle className="text-lg">Online Users</CardTitle>
           </div>
           <p className="text-xs text-gray-500 font-normal mt-1">
             View your comprehensive online users
           </p>
         </div>
-        <Button variant="outline" size="sm" className="h-8 text-xs">
+        <Button
+          variant="outline"
+          size="sm"
+          className="h-8 text-xs w-full sm:w-auto"
+        >
           All Organization <ChevronDown className="w-3 h-3 ml-1" />
         </Button>
       </CardHeader>
@@ -286,21 +290,29 @@ export function ActivityReports() {
   return (
     <div className="grid grid-cols-1 lg:grid-cols-5 gap-2">
       <Card className="lg:col-span-3 overflow-hidden">
-        <CardHeader className="flex flex-row items-center justify-between pb-4 border-b border-gray-200">
-          <div>
+        <CardHeader className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between pb-4 border-b border-gray-200">
+          <div className="min-w-0">
             <div className="flex items-center gap-2">
-              <Activity className="w-5 h-5 text-gray-500" />
+              <Activity className="w-5 h-5 text-gray-500 flex-shrink-0" />
               <CardTitle className="text-lg">App Activity Report</CardTitle>
             </div>
             <p className="text-xs text-gray-500 font-normal mt-1">
               View your comprehensive organizational app report
             </p>
           </div>
-          <div className="flex gap-2">
-            <Button variant="outline" size="sm" className="h-8 text-xs">
+          <div className="flex flex-wrap gap-2">
+            <Button
+              variant="outline"
+              size="sm"
+              className="h-8 text-xs w-full sm:w-auto"
+            >
               All Organization <ChevronDown className="w-3 h-3 ml-1" />
             </Button>
-            <Button variant="outline" size="sm" className="h-8 text-xs">
+            <Button
+              variant="outline"
+              size="sm"
+              className="h-8 text-xs w-full sm:w-auto"
+            >
               Month <ChevronDown className="w-3 h-3 ml-1" />
             </Button>
           </div>
@@ -316,17 +328,21 @@ export function ActivityReports() {
       </Card>
 
       <Card className="lg:col-span-2 overflow-hidden">
-        <CardHeader className="flex flex-row items-center justify-between pb-4 border-gray-200">
-          <div>
+        <CardHeader className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between pb-4 border-gray-200">
+          <div className="min-w-0">
             <div className="flex items-center gap-2">
-              <Globe className="w-5 h-5 text-gray-500" />
+              <Globe className="w-5 h-5 text-gray-500 flex-shrink-0" />
               <CardTitle className="text-lg">Web Activity</CardTitle>
             </div>
             <p className="text-xs text-gray-500 font-normal mt-1">
               View your comprehensive organizational web report
             </p>
           </div>
-          <Button variant="outline" size="sm" className="h-8 text-xs">
+          <Button
+            variant="outline"
+            size="sm"
+            className="h-8 text-xs w-full sm:w-auto"
+          >
             Month <ChevronDown className="w-3 h-3 ml-1" />
           </Button>
         </CardHeader>
@@ -393,8 +409,8 @@ const WebActivityRow = ({
   time: string;
   color: string;
 }) => (
-  <div className="flex items-center gap-2">
-    <div className="flex items-center gap-0 min-w-0">
+  <div className="flex flex-col sm:flex-row sm:items-center gap-2">
+    <div className="flex items-center gap-2 min-w-0 sm:w-[140px]">
       <div className="w-8 h-8 flex items-center justify-center bg-gray-50 rounded-md flex-shrink-0">
         <img src={icon} alt={name} className="w-5 h-5 object-contain" />
       </div>
@@ -404,10 +420,10 @@ const WebActivityRow = ({
     <ProgressBar
       value={value}
       colorClass={color}
-      className="flex-1 min-w-[120px] h-2"
+      className="w-full sm:flex-1 sm:min-w-[120px] h-2"
     />
 
-    <div className="flex items-center justify-end gap-3 text-xs text-gray-500 flex-shrink-0 w-[140px]">
+    <div className="flex items-center justify-between sm:justify-end gap-3 text-xs text-gray-500 w-full sm:w-[140px]">
       <span>{value}%</span>
       <span className="whitespace-nowrap">{time}</span>
     </div>

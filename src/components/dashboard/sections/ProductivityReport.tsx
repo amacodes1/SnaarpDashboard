@@ -36,7 +36,7 @@ export function ProductivityReport() {
         }
       />
 
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-2">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-2">
         <StatCard
           title="Hours Productivity"
           value="576 Hrs"
@@ -79,7 +79,7 @@ export function ProductivityReport() {
           <CardContent className="flex flex-col items-center justify-center pt-6">
             <EmailChart />
 
-            <div className="flex justify-center gap-4 mt-8 text-xs text-gray-600 w-full">
+            <div className="flex flex-wrap justify-start sm:justify-center gap-x-4 gap-y-2 mt-8 text-xs text-gray-600 w-full">
               <div className="flex items-center gap-2">
                 <span className="w-3 h-3 rounded-sm bg-amber-500"></span> Sent
               </div>
@@ -103,12 +103,12 @@ export function ProductivityReport() {
 
         {/* Total Email Area Chart */}
         <Card className="col-span-1 lg:col-span-2">
-          <CardHeader className="flex flex-row items-center justify-between pb-2">
-            <div className="flex items-center gap-2">
-              <Mail className="w-5 h-5 text-gray-500" />
+          <CardHeader className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between pb-2">
+            <div className="flex items-center gap-2 min-w-0">
+              <Mail className="w-5 h-5 text-gray-500 flex-shrink-0" />
               <CardTitle>Total Email</CardTitle>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center gap-2 justify-start sm:justify-end">
               <div className="flex border border-gray-200 rounded-md overflow-hidden">
                 <button
                   type="button"
@@ -137,7 +137,11 @@ export function ProductivityReport() {
                   <Activity className="w-4 h-4" />
                 </button>
               </div>
-              <Button variant="outline" size="sm" className="h-8 text-xs">
+              <Button
+                variant="outline"
+                size="sm"
+                className="h-8 text-xs w-full sm:w-auto"
+              >
                 Month <ChevronDown className="w-3 h-3 ml-1" />
               </Button>
             </div>
